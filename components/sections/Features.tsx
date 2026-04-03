@@ -3,39 +3,40 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Badge from '@/components/ui/Badge'
+import AudioPlayer from '@/components/ui/AudioPlayer'
 
 // ─── Chat Mockup ─────────────────────────────────────────────────────────────
 
 const messages = [
   {
     from: 'client',
-    text: 'Bonsoir, j\'aurais besoin d\'un devis pour votre service.',
-    time: '22:14',
+    text: 'Bonjour, je voudrais prendre rendez-vous avec votre équipe.',
+    time: '19:42',
   },
   {
     from: 'keelio',
-    text: 'Bonsoir ! Je suis Keelio, l\'assistant de cette entreprise. Je serais ravi de vous aider.',
-    time: '22:14',
-  },
-  {
-    from: 'keelio',
-    text: 'Pouvez-vous me préciser la taille de votre équipe et votre secteur d\'activité ?',
-    time: '22:14',
+    text: 'Bonjour ! Je suis Keelio. Avec plaisir — quelle est votre disponibilité cette semaine ?',
+    time: '19:42',
   },
   {
     from: 'client',
-    text: 'On est 8 personnes, dans le BTP.',
-    time: '22:15',
+    text: 'Plutôt jeudi ou vendredi après-midi.',
+    time: '19:43',
   },
   {
     from: 'keelio',
-    text: 'Parfait. Votre demande a été qualifiée et transmise à l\'équipe. Vous serez recontacté demain matin.',
-    time: '22:15',
+    text: 'Jeudi 10 avril à 14h ou vendredi 11 à 15h30 — les deux créneaux sont disponibles.',
+    time: '19:43',
+  },
+  {
+    from: 'client',
+    text: 'Jeudi 14h, ce sera parfait.',
+    time: '19:43',
   },
   {
     from: 'system',
-    text: 'Lead transmis — réponse en 28 secondes',
-    time: '22:15',
+    text: 'RDV confirmé — jeudi 10 avril à 14h00',
+    time: '19:43',
   },
 ]
 
@@ -98,7 +99,7 @@ function ChatMockup() {
         </div>
 
         {/* Messages */}
-        <div className="px-4 py-5 flex flex-col gap-3 min-h-[280px]" aria-live="polite" aria-label="Conversation de démonstration">
+        <div className="px-4 py-5 flex flex-col gap-3 h-64 overflow-y-auto" aria-live="polite" aria-label="Conversation de démonstration">
           <AnimatePresence>
             {messages.slice(0, visibleCount).map((msg, i) => {
               if (msg.from === 'system') {
@@ -257,15 +258,21 @@ export default function Features() {
             </motion.p>
           </motion.div>
 
-          {/* Right — chat mockup (hidden on mobile) */}
+          {/* Right — chat mockup + audio player (hidden on mobile) */}
           <motion.div
-            className="hidden lg:block"
+            className="hidden lg:flex flex-col gap-4"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <ChatMockup />
+            <div className="w-full max-w-sm mx-auto lg:mx-0 flex flex-col gap-2">
+              <p className="font-body text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-[0.1em]">
+                Écoutez une vraie conversation
+              </p>
+              <AudioPlayer src="/demo-conversation.mp3" />
+            </div>
           </motion.div>
         </div>
 
