@@ -38,12 +38,24 @@ Le site SHALL afficher 3 à 4 fonctionnalités clés de Keelio dans un grid asym
 - **THEN** les cards de features apparaissent en séquence avec un délai de 0.1s
 
 ### Requirement: Section Comment ça marche
-Le site SHALL afficher 3 étapes numérotées illustrant le processus d'onboarding Keelio (ex. : 1. On discute, 2. On configure, 3. C'est live). Format horizontal sur desktop, vertical sur mobile.
+Le site SHALL afficher 3 étapes numérotées illustrant le processus d'onboarding Keelio (1. On discute, 2. On configure, 3. C'est live). Sur desktop, le layout est en "staircase" — les étapes sont décalées verticalement pour créer une diagonale descendante. Sur mobile, les étapes sont empilées verticalement en colonne. La section SHALL utiliser `background-color: var(--color-bg)` pour s'intégrer dans le flux sombre.
 
 #### Scenario: Étapes numérotées
 - **WHEN** la section est rendue
-- **THEN** chaque étape affiche un numéro stylisé, un titre et une description courte
+- **THEN** chaque étape affiche un numéro stylisé (01/02/03), un titre et une description courte
+
+#### Scenario: Layout staircase desktop
+- **WHEN** la section est affichée sur desktop (lg+)
+- **THEN** les 3 étapes sont disposées horizontalement avec des décalages verticaux progressifs créant une diagonale visuelle descendante
+
+#### Scenario: Grand chiffre fantôme
+- **WHEN** chaque étape est rendue
+- **THEN** le numéro de l'étape apparaît en grand (≥ 6rem) en arrière-plan, en Cormorant Garamond, opacité ≤ 8%, `aria-hidden: true`
 
 #### Scenario: Connecteur visuel entre étapes
-- **WHEN** la section est affichée sur desktop
-- **THEN** une ligne ou flèche décorative relie visuellement les 3 étapes
+- **WHEN** la section est affichée
+- **THEN** une ligne verticale de couleur accent (opacité ≤ 22%) accompagne chaque étape, animée en `scaleY 0→1` au scroll
+
+#### Scenario: Responsive mobile
+- **WHEN** la section est affichée sur mobile (< lg)
+- **THEN** les décalages desktop disparaissent, les étapes s'empilent verticalement en colonne unique sans scroll horizontal

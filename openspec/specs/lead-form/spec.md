@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Formulaire de capture de leads
-Le site SHALL afficher un formulaire de contact avec les champs : Prénom + Nom (requis), Email professionnel (requis, format validé), Téléphone (optionnel), Message ou "Décrivez votre besoin" (optionnel). La validation côté client utilise React Hook Form + Zod.
+Le site SHALL afficher un formulaire de contact avec les champs : Prénom + Nom (requis), Email professionnel (requis, format validé), Téléphone (optionnel), Message ou "Décrivez votre projet / besoin" (optionnel). Le titre de la section SHALL être "Demander un devis" (ou "Parlons de votre projet"). La validation côté client utilise React Hook Form + Zod.
 
 #### Scenario: Validation en temps réel
 - **WHEN** l'utilisateur quitte un champ requis vide
@@ -14,6 +14,10 @@ Le site SHALL afficher un formulaire de contact avec les champs : Prénom + Nom 
 #### Scenario: Soumission bloquée si invalide
 - **WHEN** l'utilisateur clique "Envoyer" avec des champs invalides
 - **THEN** le formulaire ne se soumet pas et les erreurs sont toutes affichées
+
+#### Scenario: Copy orienté devis
+- **WHEN** la section contact est rendue
+- **THEN** le titre de section, le sous-titre et le placeholder du champ message reflètent qu'il s'agit d'une demande de devis ou de prise de contact pour un projet (ex. placeholder : "Décrivez votre activité et ce que vous cherchez à automatiser...")
 
 ### Requirement: Soumission sécurisée vers n8n
 Le formulaire SHALL soumettre les données vers une API Route Next.js (`/api/contact`) qui relaie vers le webhook n8n. L'URL du webhook est stockée dans la variable d'environnement serveur `N8N_WEBHOOK_URL` et n'est jamais exposée côté client.
