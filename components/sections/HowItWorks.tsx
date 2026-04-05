@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import Badge from '@/components/ui/Badge'
 
 const steps = [
@@ -37,11 +37,11 @@ const itemVariants = {
   },
 }
 
-const lineVariants = {
+const lineVariants: Variants = {
   hidden: { scaleY: 0 },
   visible: {
     scaleY: 1,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: { duration: 0.5, ease: 'easeOut' as const },
   },
 }
 
