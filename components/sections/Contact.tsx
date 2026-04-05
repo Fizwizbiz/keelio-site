@@ -74,7 +74,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-32 border-t border-[var(--color-border)]"
+      className="py-32"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-24 items-start">
@@ -86,7 +86,7 @@ export default function Contact() {
             variants={containerVariants}
           >
             <motion.div variants={itemVariants}>
-              <Badge>Contact</Badge>
+              <Badge>Devis</Badge>
             </motion.div>
             <motion.h2
               variants={itemVariants}
@@ -99,7 +99,7 @@ export default function Contact() {
               variants={itemVariants}
               className="font-body text-[var(--color-text-muted)] text-sm leading-relaxed"
             >
-              Remplissez ce formulaire et nous vous recontactons dans les 24h. Pas de discours commercial — juste une vraie conversation.
+              Décrivez votre projet et nous vous préparons une offre sur mesure. Réponse sous 24h, sans engagement.
             </motion.p>
             <motion.div
               variants={itemVariants}
@@ -117,12 +117,7 @@ export default function Contact() {
                   Sans engagement
                 </span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-[var(--color-accent-muted)]" />
-                <span className="font-body text-xs text-[var(--color-text-muted)] tracking-wide">
-                  Déploiement en 48h
-                </span>
-              </div>
+
             </motion.div>
           </motion.div>
 

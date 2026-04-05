@@ -65,7 +65,7 @@ export default function Problem() {
   return (
     <section
       id="probleme"
-      className="py-32 border-t border-[var(--color-border)]"
+      className="py-32 bg-[var(--color-surface)]"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div

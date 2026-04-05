@@ -196,9 +196,9 @@ const stats = [
     description: 'Nuits, week-ends, jours fériés',
   },
   {
-    value: '48h',
-    label: 'Déploiement',
-    description: 'Opérationnel en deux jours',
+    value: '0',
+    label: 'Appel manqué',
+    description: 'Chaque demande reçoit une réponse',
   },
   {
     value: '100%',
@@ -225,7 +225,7 @@ export default function Features() {
   return (
     <section
       id="fonctionnalites"
-      className="py-32 border-t border-[var(--color-border)]"
+      className="py-32"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-20">
 

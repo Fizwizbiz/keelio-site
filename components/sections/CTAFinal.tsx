@@ -20,7 +20,7 @@ const itemVariants = {
 export default function CTAFinal() {
   return (
     <section
-      className="relative py-40 border-t border-[var(--color-border)] overflow-hidden"
+      className="section-aura relative py-40 overflow-hidden"
       style={{
         background:
           'linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 50%, var(--color-bg) 100%)',
@@ -72,7 +72,7 @@ export default function CTAFinal() {
             variants={itemVariants}
             className="font-body text-xs text-[var(--color-text-muted)] tracking-wide"
           >
-            Déploiement en 48h · Sans engagement · Accompagnement inclus
+            Sans engagement · Accompagnement inclus
           </motion.p>
         </motion.div>
       </div>

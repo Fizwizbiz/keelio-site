@@ -4,11 +4,12 @@ import SocialProof from '@/components/sections/SocialProof'
 import Problem from '@/components/sections/Problem'
 import Features from '@/components/sections/Features'
 import HowItWorks from '@/components/sections/HowItWorks'
-import Pricing from '@/components/sections/Pricing'
+import QuoteCTA from '@/components/sections/QuoteCTA'
 import FAQ from '@/components/sections/FAQ'
 import CTAFinal from '@/components/sections/CTAFinal'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/sections/Footer'
+import SectionDivider from '@/components/ui/SectionDivider'
 
 export default function Home() {
   return (
@@ -16,17 +17,21 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-
-        <div className="border-t border-[var(--color-border)]">
-          <SocialProof />
-        </div>
-
+        <SectionDivider />
+        <SocialProof />
+        <SectionDivider />
         <Problem />
+        <SectionDivider />
         <Features />
+        <SectionDivider />
         <HowItWorks />
-        <Pricing />
+        <SectionDivider />
+        <QuoteCTA />
+        <SectionDivider />
         <FAQ />
+        <SectionDivider />
         <CTAFinal />
+        <SectionDivider />
         <Contact />
       </main>
       <Footer />

@@ -145,13 +145,13 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="section-aura relative min-h-screen flex items-center overflow-hidden">
       {/* Subtle background gradient */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(232,224,208,0.025) 0%, transparent 60%)',
+            'radial-gradient(ellipse 90% 70% at 70% 50%, rgba(232,224,208,0.07) 0%, transparent 62%)',
         }}
         aria-hidden="true"
       />
@@ -222,7 +222,7 @@ export default function Hero() {
                 ))}
               </div>
               <span className="font-body text-xs text-[var(--color-text-muted)] tracking-wide">
-                Déploiement en 48h · Sans engagement · Support inclus
+                Sans engagement · Support inclus
               </span>
             </motion.div>
           </div>

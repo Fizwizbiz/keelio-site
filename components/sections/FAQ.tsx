@@ -7,9 +7,9 @@ import Accordion from '@/components/ui/Accordion'
 
 const faqItems = [
   {
-    question: 'Combien coûte Keelio ?',
+    question: 'Quel est le tarif ?',
     answer:
-      "Nos plans démarrent à 297€/mois. Pas de frais cachés, pas d'engagement minimum. Vous payez mois par mois.",
+      "Nous établissons un devis personnalisé selon votre activité, le volume d'interactions et vos besoins spécifiques. Contactez-nous pour obtenir une offre adaptée — sans engagement.",
   },
   {
     question: 'Combien de temps pour être opérationnel ?',
@@ -62,7 +62,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="py-32 border-t border-[var(--color-border)]"
+      className="py-32 bg-[var(--color-surface)]"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-start">

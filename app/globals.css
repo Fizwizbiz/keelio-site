@@ -5,12 +5,12 @@
 :root {
   /* Colors */
   --color-bg:           #0A0A0A;
-  --color-surface:      #111111;
-  --color-border:       #1F1F1F;
+  --color-surface:      #1E1B17;   /* warm dark brown — perceptibly different from bg */
+  --color-border:       #2A2520;   /* warmer, more visible */
   --color-accent:       #E8E0D0;
   --color-accent-muted: #A09880;
   --color-text:         #F5F0E8;
-  --color-text-muted:   #6B6560;
+  --color-text-muted:   #8A8278;   /* brighter for better contrast on surface */
 
   /* Typography */
   --font-display: 'Cormorant Garamond', serif;
@@ -57,4 +57,45 @@ body {
   .section-padding {
     padding: var(--section-padding);
   }
+}
+
+/* ─── Global grain texture ─────────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px;
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─── Heading glow ─────────────────────────────────────────────────────────── */
+h1, h2 {
+  text-shadow: 0 0 80px rgba(232, 224, 208, 0.14);
+}
+
+/* ─── Section visual separation ────────────────────────────────────────────── */
+.section-aura {
+  position: relative;
+}
+
+.section-aura::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 110% 55% at 50% -5%, rgba(232, 224, 208, 0.18) 0%, rgba(232, 224, 208, 0.06) 45%, transparent 72%);
+  pointer-events: none;
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(232, 224, 208, 0.22) 30%, rgba(232, 224, 208, 0.22) 70%, transparent);
+  flex-shrink: 0;
 }

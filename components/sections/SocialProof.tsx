@@ -30,7 +30,7 @@ function LogoPlaceholder({ name }: { name: string }) {
 
 export default function SocialProof() {
   return (
-    <section className="py-16 border-t border-[var(--color-border)]">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <p className="font-body text-xs text-[var(--color-text-muted)] uppercase tracking-[0.14em] text-center mb-10">
           Ils nous font confiance
