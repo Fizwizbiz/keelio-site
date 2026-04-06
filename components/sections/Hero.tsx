@@ -146,7 +146,7 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section className="section-aura relative min-h-screen flex items-center overflow-hidden">
+    <section className="section-aura section-bg section-grid relative min-h-screen flex items-center overflow-hidden">
       {/* Background gradient — cyan radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"

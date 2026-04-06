@@ -67,7 +67,7 @@ export default function Problem() {
   return (
     <section
       id="probleme"
-      className="py-32 section-surface"
+      className="py-32 section-surface section-grid"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div

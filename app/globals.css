@@ -32,8 +32,6 @@ html {
 
 body {
   background-color: var(--color-bg);
-  background-image: var(--grid-pattern);
-  background-size: var(--grid-size);
   color: var(--color-text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -66,15 +64,17 @@ body {
     padding: var(--section-padding);
   }
 
-  /* Section backgrounds — incluent le quadrillage pour qu'il reste visible */
+  /* Section backgrounds — couleurs solides sans quadrillage */
   .section-bg {
     background-color: var(--color-bg);
-    background-image: var(--grid-pattern);
-    background-size: var(--grid-size);
   }
 
   .section-surface {
     background-color: var(--color-surface);
+  }
+
+  /* Quadrillage — appliqué uniquement sur les sections choisies */
+  .section-grid {
     background-image: var(--grid-pattern);
     background-size: var(--grid-size);
   }
