@@ -62,7 +62,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="py-32 bg-[var(--color-surface)]"
+      className="py-32 section-bg"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-start">

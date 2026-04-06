@@ -225,7 +225,7 @@ export default function Features() {
   return (
     <section
       id="fonctionnalites"
-      className="py-32"
+      className="py-32 section-surface"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-20">
 
@@ -284,7 +284,7 @@ export default function Features() {
 
         {/* Bottom: 4 stats */}
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 border border-[var(--color-border)] bg-[var(--color-surface)]"
+          className="grid grid-cols-2 lg:grid-cols-4 border border-[var(--color-border)] bg-[var(--color-bg)]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}

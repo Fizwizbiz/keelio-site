@@ -39,16 +39,16 @@ Structure des dossiers :
 ### Palette de couleurs
 
 ```css
---color-bg:           #0A0E1A;   /* Midnight profond — fond principal dark */
---color-surface:      #111827;   /* Navy sombre — cards, surfaces élevées */
---color-border:       #1E2A3A;   /* Bordures subtiles navy */
+--color-bg:           #0B1629;   /* Bleu profond — fond principal */
+--color-surface:      #112240;   /* Bleu marine — surface élevée */
+--color-border:       #1A3050;   /* Bordure bleue subtile */
 --color-accent:       #00D4FF;   /* Cyan vif — CTA primaire, hover, highlights */
 --color-accent-muted: #0099CC;   /* Cyan atténué — états secondaires */
---color-text:         #F0F4F8;   /* Blanc cassé froid — texte principal */
---color-text-muted:   #8899AA;   /* Gris bleuté — textes secondaires */
+--color-text:         #E8F4F8;   /* Blanc légèrement bleuté — texte principal */
+--color-text-muted:   #7A9BB5;   /* Bleu-gris — textes secondaires */
 ```
 
-> Palette dark — fond midnight navy profond, texte blanc cassé froid. L'accent cyan vif `#00D4FF` donne la signature tech/IA de Keelio. Le site est dark par conception. Les rgba hardcodés dans les composants utilisent la teinte `0,212,255` (équivalent de `#00D4FF`) pour les accents et `17,24,39` (équivalent de `#111827`) pour les surfaces.
+> Palette dark bleue — fond bleu profond `#0B1629`, surface bleue marine `#112240` clairement distincte. L'accent cyan `#00D4FF` donne la signature tech/IA. Un quadrillage CSS subtil (lignes cyan 0.045 d'opacité, 40×40px) est appliqué sur toute la page via `body` et les classes `.section-bg` / `.section-surface`. Les rgba hardcodés utilisent `0,212,255` pour les accents et `17,34,64` (équivalent de `#112240`) pour les surfaces.
 
 ### Typographie
 

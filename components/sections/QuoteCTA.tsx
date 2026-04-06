@@ -21,7 +21,7 @@ export default function QuoteCTA() {
   return (
     <section
       id="devis"
-      className="section-aura relative py-32"
+      className="section-aura section-surface relative py-32"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div

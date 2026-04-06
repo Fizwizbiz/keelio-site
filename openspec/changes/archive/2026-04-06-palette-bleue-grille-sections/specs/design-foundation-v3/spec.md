@@ -1,4 +1,4 @@
-## ADDED Requirements
+## MODIFIED Requirements
 
 ### Requirement: Palette dark midnight avec accents cyan
 Le site SHALL utiliser une palette dark navy/midnight comme fond principal avec des accents cyan vifs. La palette est ajustée pour un bleu plus présent et un contraste de surface plus marqué.
@@ -25,38 +25,9 @@ Le site SHALL utiliser une palette dark navy/midnight comme fond principal avec 
 - **WHEN** le texte principal `--color-text` (#E8F4F8) s'affiche sur `--color-bg` (#0B1629)
 - **THEN** le ratio de contraste est supérieur à 4.5:1
 
-#### Scenario: Accent cyan visible sur fond dark
-- **WHEN** un élément d'accent (CTA, lien, icône) utilise `--color-accent` (#00D4FF) sur fond dark
-- **THEN** l'élément est clairement identifiable et attire l'attention
-
 ### Requirement: Alternance visuelle correcte des sections
 Les sections de la landing page SHALL alterner entre `--color-bg` et `--color-surface` de façon à ce qu'aucune section de même couleur ne soit adjacente à une autre.
 
 #### Scenario: Sections adjacentes toujours de couleurs différentes
 - **WHEN** l'utilisateur scrolle la page
 - **THEN** chaque section a visuellement un fond différent de la section précédente et suivante
-
-### Requirement: Typographie moderne sans-serif Poppins + Inter
-Le site SHALL utiliser Poppins pour les titres display et Inter pour le corps de texte, importés depuis Google Fonts.
-
-#### Scenario: Titres en Poppins
-- **WHEN** un titre H1 ou H2 est rendu
-- **THEN** la police utilisée est Poppins, weight 600 ou 700, avec letter-spacing légèrement négatif
-
-#### Scenario: Corps de texte en Inter
-- **WHEN** du texte de paragraphe ou d'UI est rendu
-- **THEN** la police utilisée est Inter, weight 400 ou 500, avec line-height 1.6-1.7
-
-### Requirement: Glow cyan sur éléments interactifs
-Les éléments interactifs primaires (CTA, boutons, liens hover) SHALL afficher un effet glow cyan au hover pour renforcer l'esthétique tech.
-
-#### Scenario: Glow sur CTA primaire au hover
-- **WHEN** l'utilisateur survole le bouton CTA primaire
-- **THEN** un `box-shadow: 0 0 20px rgba(0, 212, 255, 0.3)` apparaît avec une transition douce de 0.3s
-
-### Requirement: Documentation palette dans CLAUDE.md synchronisée
-La documentation de la palette dans `CLAUDE.md` SHALL être mise à jour avec les nouvelles valeurs CSS dark + cyan pour que les futures sessions de génération de code utilisent les bonnes couleurs.
-
-#### Scenario: Palette dark documentée dans CLAUDE.md
-- **WHEN** Claude lit CLAUDE.md pour générer du code
-- **THEN** les valeurs de couleur référencées correspondent aux variables CSS actives dans globals.css (palette dark midnight/cyan)
