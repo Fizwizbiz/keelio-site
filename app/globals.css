@@ -4,13 +4,13 @@
 
 :root {
   /* Colors */
-  --color-bg:           #0A0A0A;
-  --color-surface:      #1E1B17;   /* warm dark brown — perceptibly different from bg */
-  --color-border:       #2A2520;   /* warmer, more visible */
-  --color-accent:       #E8E0D0;
-  --color-accent-muted: #A09880;
-  --color-text:         #F5F0E8;
-  --color-text-muted:   #8A8278;   /* brighter for better contrast on surface */
+  --color-bg:           #141414;   /* gris anthracite — plus vivable que le noir pur */
+  --color-surface:      #1E1E1E;   /* surface distincte et neutre */
+  --color-border:       #2E2E2E;   /* bordures visibles sans agressivité */
+  --color-accent:       #D4C5A9;   /* crème doré — signature Keelio */
+  --color-accent-muted: #8F8270;   /* accent secondaire atténué */
+  --color-text:         #F0EBE1;   /* blanc cassé chaud */
+  --color-text-muted:   #7A7570;   /* texte secondaire lisible */
 
   /* Typography */
   --font-display: 'Cormorant Garamond', serif;

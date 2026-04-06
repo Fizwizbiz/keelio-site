@@ -39,16 +39,16 @@ Structure des dossiers :
 ### Palette de couleurs
 
 ```css
---color-bg:          #0A0A0A;   /* Noir profond — fond principal */
---color-surface:     #111111;   /* Surfaces légèrement relevées */
---color-border:      #1F1F1F;   /* Bordures subtiles */
---color-accent:      #E8E0D0;   /* Crème chaud — couleur principale de marque */
---color-accent-muted:#A09880;   /* Accent atténué pour textes secondaires */
---color-text:        #F5F0E8;   /* Texte principal, légèrement chaud */
---color-text-muted:  #6B6560;   /* Texte secondaire, hints */
+--color-bg:          #141414;   /* Gris anthracite — fond principal, plus vivable que le noir pur */
+--color-surface:     #1E1E1E;   /* Surfaces distinctes, neutre chaud */
+--color-border:      #2E2E2E;   /* Bordures visibles sans agressivité */
+--color-accent:      #D4C5A9;   /* Crème doré — couleur principale de marque */
+--color-accent-muted:#8F8270;   /* Accent atténué pour textes secondaires */
+--color-text:        #F0EBE1;   /* Blanc cassé chaud — texte principal */
+--color-text-muted:  #7A7570;   /* Texte secondaire, hints */
 ```
 
-> Palette sombre et chaude — le noir n'est pas froid, il est profond. L'accent crème donne un sentiment premium sans être agressif. Pas de bleu, pas de violet.
+> Palette sombre et chaude — le fond est un anthracite habitable, pas un noir oppressant. L'accent crème doré donne un sentiment premium sans être agressif. Pas de bleu, pas de violet.
 
 ### Typographie
 

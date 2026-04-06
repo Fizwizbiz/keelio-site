@@ -6,7 +6,6 @@ import Features from '@/components/sections/Features'
 import HowItWorks from '@/components/sections/HowItWorks'
 import QuoteCTA from '@/components/sections/QuoteCTA'
 import FAQ from '@/components/sections/FAQ'
-import CTAFinal from '@/components/sections/CTAFinal'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/sections/Footer'
 import SectionDivider from '@/components/ui/SectionDivider'
@@ -29,8 +28,6 @@ export default function Home() {
         <QuoteCTA />
         <SectionDivider />
         <FAQ />
-        <SectionDivider />
-        <CTAFinal />
         <SectionDivider />
         <Contact />
       </main>
