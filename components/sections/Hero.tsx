@@ -23,7 +23,7 @@ function GeometricVisual() {
           cx="240"
           cy="240"
           r="200"
-          stroke="rgba(232,224,208,0.08)"
+          stroke="rgba(0,212,255,0.12)"
           strokeWidth="1"
           animate={{ rotate: 360 }}
           transition={{ duration: 80, repeat: Infinity, ease: 'linear' }}
@@ -44,7 +44,7 @@ function GeometricVisual() {
               y1={y1}
               x2={x2}
               y2={y2}
-              stroke="rgba(232,224,208,0.15)"
+              stroke="rgba(0,212,255,0.20)"
               strokeWidth="1"
             />
           )
@@ -55,7 +55,7 @@ function GeometricVisual() {
           cx="240"
           cy="240"
           r="145"
-          stroke="rgba(232,224,208,0.06)"
+          stroke="rgba(0,212,255,0.07)"
           strokeWidth="1"
           strokeDasharray="4 12"
           animate={{ rotate: -360 }}
@@ -68,24 +68,24 @@ function GeometricVisual() {
           cx="240"
           cy="240"
           r="90"
-          stroke="rgba(232,224,208,0.1)"
+          stroke="rgba(0,212,255,0.10)"
           strokeWidth="1"
         />
 
         {/* Cross lines */}
-        <line x1="40" y1="240" x2="440" y2="240" stroke="rgba(232,224,208,0.04)" strokeWidth="1" />
-        <line x1="240" y1="40" x2="240" y2="440" stroke="rgba(232,224,208,0.04)" strokeWidth="1" />
+        <line x1="40" y1="240" x2="440" y2="240" stroke="rgba(0,212,255,0.05)" strokeWidth="1" />
+        <line x1="240" y1="40" x2="240" y2="440" stroke="rgba(0,212,255,0.05)" strokeWidth="1" />
 
         {/* Diagonal lines */}
-        <line x1="98" y1="98" x2="382" y2="382" stroke="rgba(232,224,208,0.03)" strokeWidth="1" />
-        <line x1="382" y1="98" x2="98" y2="382" stroke="rgba(232,224,208,0.03)" strokeWidth="1" />
+        <line x1="98" y1="98" x2="382" y2="382" stroke="rgba(0,212,255,0.04)" strokeWidth="1" />
+        <line x1="382" y1="98" x2="98" y2="382" stroke="rgba(0,212,255,0.04)" strokeWidth="1" />
 
         {/* Center dot */}
         <motion.circle
           cx="240"
           cy="240"
           r="3"
-          fill="rgba(232,224,208,0.5)"
+          fill="rgba(0,212,255,0.7)"
           animate={{ scale: [1, 1.4, 1] }}
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           style={{ transformOrigin: '240px 240px' }}
@@ -93,13 +93,14 @@ function GeometricVisual() {
 
         {/* Orbiting dot */}
         <motion.circle
-          r="4"
+          r="5"
           fill="var(--color-accent)"
           animate={{
             cx: [440, 240, 40, 240, 440],
             cy: [240, 440, 240, 40, 240],
           }}
           transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+          style={{ filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.8))' }}
         />
 
         {/* Corner accent squares */}
@@ -116,18 +117,18 @@ function GeometricVisual() {
             width="8"
             height="8"
             fill="none"
-            stroke="rgba(232,224,208,0.25)"
+            stroke="rgba(0,212,255,0.30)"
             strokeWidth="1"
           />
         ))}
       </motion.svg>
 
-      {/* Radial gradient overlay */}
+      {/* Radial glow at center */}
       <div
-        className="absolute inset-0 rounded-full"
+        className="absolute inset-0 rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at center, rgba(232,224,208,0.03) 0%, transparent 70%)',
+            'radial-gradient(ellipse at center, rgba(0,212,255,0.06) 0%, transparent 65%)',
         }}
       />
     </div>
@@ -135,7 +136,7 @@ function GeometricVisual() {
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
@@ -146,12 +147,21 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section className="section-aura relative min-h-screen flex items-center overflow-hidden">
-      {/* Subtle background gradient */}
+      {/* Background gradient — cyan radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 90% 70% at 70% 50%, rgba(232,224,208,0.07) 0%, transparent 62%)',
+            'radial-gradient(ellipse 80% 60% at 65% 45%, rgba(0,212,255,0.05) 0%, transparent 60%)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Top-left accent glow */}
+      <div
+        className="absolute -top-40 -left-40 w-96 h-96 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%)',
         }}
         aria-hidden="true"
       />
@@ -174,10 +184,11 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="font-display font-light text-[var(--color-text)] leading-[1.08] tracking-[-0.02em]"
-              style={{ fontSize: 'clamp(2.75rem, 5.5vw, 5rem)' }}
+              className="font-display font-bold text-[var(--color-text)] leading-[1.08] tracking-[-0.02em]"
+              style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
             >
-              Votre entreprise répond, même quand vous dormez.
+              Votre entreprise répond,{' '}
+              <span style={{ color: 'var(--color-accent)' }}>même quand vous dormez.</span>
             </motion.h1>
 
             <motion.p
@@ -217,7 +228,8 @@ export default function Hero() {
                 {[0, 1, 2].map((i) => (
                   <div
                     key={i}
-                    className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent-muted)]"
+                    className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"
+                    style={{ opacity: 0.5 + i * 0.2 }}
                   />
                 ))}
               </div>

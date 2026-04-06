@@ -33,10 +33,11 @@ export default function QuoteCTA() {
         >
           <motion.h2
             variants={itemVariants}
-            className="font-display font-light text-[var(--color-text)] leading-tight"
+            className="font-display font-bold text-[var(--color-text)] leading-tight"
             style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
           >
-            Un projet ? Parlons-en.
+            Un projet ?{' '}
+            <span style={{ color: 'var(--color-accent)' }}>Parlons-en.</span>
           </motion.h2>
           <motion.p
             variants={itemVariants}

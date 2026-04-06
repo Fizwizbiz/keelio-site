@@ -1,16 +1,16 @@
 ## ADDED Requirements
 
 ### Requirement: Tokens CSS de design
-Le site SHALL définir l'ensemble des tokens de design comme variables CSS dans `globals.css`, couvrant couleurs, typographie et espacements selon la palette Keelio :
-- `--color-bg: #0A0A0A`, `--color-surface: #111111`, `--color-border: #1F1F1F`
-- `--color-accent: #E8E0D0`, `--color-accent-muted: #A09880`
-- `--color-text: #F5F0E8`, `--color-text-muted: #6B6560`
+Le site SHALL définir l'ensemble des tokens de design comme variables CSS dans `globals.css`, couvrant couleurs, typographie et espacements selon la palette Keelio revisée :
+- `--color-bg: #141414`, `--color-surface: #1E1E1E`, `--color-border: #2E2E2E`
+- `--color-accent: #D4C5A9`, `--color-accent-muted: #8F8270`
+- `--color-text: #F0EBE1`, `--color-text-muted: #7A7570`
 - `--font-display: 'Cormorant Garamond', serif` — titres
 - `--font-body: 'DM Sans', sans-serif` — corps et UI
 
 #### Scenario: Tokens disponibles globalement
 - **WHEN** n'importe quel composant référence `var(--color-accent)`
-- **THEN** la couleur `#E8E0D0` s'applique sans import supplémentaire
+- **THEN** la couleur `#D4C5A9` s'applique sans import supplémentaire
 
 #### Scenario: Tokens exposés dans Tailwind
 - **WHEN** un développeur utilise la classe `text-accent` dans un composant
@@ -60,7 +60,7 @@ Le layout (`app/layout.tsx`) SHALL définir les métadonnées SEO de base (title
 Tous les textes du site SHALL respecter un ratio de contraste minimum de 4.5:1 (texte normal) ou 3:1 (grand texte) par rapport à leur fond.
 
 #### Scenario: Texte principal sur fond noir
-- **WHEN** du texte `--color-text` (#F5F0E8) est affiché sur `--color-bg` (#0A0A0A)
+- **WHEN** du texte `--color-text` (#F0EBE1) est affiché sur `--color-bg` (#141414)
 - **THEN** le ratio de contraste est supérieur à 4.5:1
 
 ### Requirement: Séparation visuelle des sections
@@ -68,15 +68,15 @@ Le site SHALL différencier visuellement les sections adjacentes par une combina
 
 #### Scenario: Alternance de fond perceptible
 - **WHEN** le visiteur fait défiler la page
-- **THEN** les sections Problem, HowItWorks et FAQ affichent `background-color: var(--color-surface)` (#1E1B17), tandis que SocialProof et Features restent sur `var(--color-bg)` (#0A0A0A)
+- **THEN** les sections Problem, HowItWorks et FAQ affichent `background-color: var(--color-surface)` (#1E1E1E), tandis que SocialProof et Features restent sur `var(--color-bg)` (#141414)
 
 #### Scenario: Aura gradient sur sections clés
-- **WHEN** les sections Hero, QuoteCTA et CTAFinal sont rendues
+- **WHEN** les sections Hero et QuoteCTA sont rendues
 - **THEN** chacune affiche un radial-gradient centré en haut avec `--color-accent` à ≤ 18% d'opacité, via un pseudo-élément `::before` positionné en absolu sur toute la surface de la section
 
 #### Scenario: Séparateurs dégradés entre sections
 - **WHEN** deux sections se succèdent dans le flux de la page
-- **THEN** le séparateur horizontal est un `div` de 1px dont le fond est `linear-gradient(to right, transparent, rgba(232,224,208,0.22), transparent)`
+- **THEN** le séparateur horizontal est un `div` de 1px dont le fond est `linear-gradient(to right, transparent, rgba(212,197,169,0.22), transparent)`
 
 #### Scenario: Pas de dégradation du contraste WCAG
 - **WHEN** les effets de fond (aura, alternance) sont appliqués

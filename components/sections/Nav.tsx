@@ -20,7 +20,6 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMenuOpen(false)
@@ -34,8 +33,8 @@ export default function Nav() {
       <motion.header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
-          backgroundColor: scrolled ? 'rgba(17,17,17,0.85)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(12px)' : 'none',
+          backgroundColor: scrolled ? 'rgba(10,14,26,0.92)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
           borderBottom: scrolled ? '1px solid var(--color-border)' : '1px solid transparent',
         }}
       >
@@ -44,7 +43,7 @@ export default function Nav() {
             {/* Logo */}
             <a
               href="#"
-              className="font-display text-xl font-light tracking-[0.08em] text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
+              className="font-display text-xl font-bold tracking-[-0.01em] text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
             >
               Keelio
             </a>
@@ -55,7 +54,7 @@ export default function Nav() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
+                  className="font-body text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
                 >
                   {link.label}
                 </a>
@@ -104,7 +103,7 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-16 left-0 right-0 z-40 bg-[rgba(17,17,17,0.97)] backdrop-blur-xl border-b border-[var(--color-border)] md:hidden"
+            className="fixed top-16 left-0 right-0 z-40 bg-[rgba(10,14,26,0.98)] backdrop-blur-xl border-b border-[var(--color-border)] md:hidden"
           >
             <nav className="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-4" aria-label="Navigation mobile">
               {navLinks.map((link, i) => (

@@ -17,11 +17,11 @@ export default function Home() {
       <main>
         <Hero />
         <SectionDivider />
+        <Features />
+        <SectionDivider />
         <SocialProof />
         <SectionDivider />
         <Problem />
-        <SectionDivider />
-        <Features />
         <SectionDivider />
         <HowItWorks />
         <SectionDivider />

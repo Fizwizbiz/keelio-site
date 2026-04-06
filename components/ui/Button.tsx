@@ -14,9 +14,9 @@ const sizes: Record<Size, string> = {
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-[var(--color-accent)] text-[var(--color-bg)] hover:shadow-[0_0_28px_rgba(232,224,208,0.2)]',
+    'bg-[var(--color-accent)] text-[#0A0E1A] font-semibold hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] hover:bg-[#1ADEFF]',
   ghost:
-    'bg-transparent text-[var(--color-accent)] border border-[var(--color-accent)] hover:bg-[rgba(232,224,208,0.04)]',
+    'bg-transparent text-[var(--color-accent)] border border-[var(--color-accent)] hover:bg-[rgba(0,212,255,0.06)] hover:shadow-[0_0_16px_rgba(0,212,255,0.15)]',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -36,8 +36,8 @@ export default function Button({
     <motion.button
       whileHover={{ y: -2 }}
       whileTap={{ y: 0 }}
-      transition={{ duration: 0.3 }}
-      className={`inline-flex items-center justify-center gap-2 font-body font-medium tracking-wide transition-shadow duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3 disabled:opacity-40 disabled:cursor-not-allowed ${sizes[size]} ${variants[variant]} ${className}`}
+      transition={{ duration: 0.25 }}
+      className={`inline-flex items-center justify-center gap-2 font-body font-medium tracking-wide transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3 disabled:opacity-40 disabled:cursor-not-allowed ${sizes[size]} ${variants[variant]} ${className}`}
       {...(props as any)}
     >
       {children}
@@ -65,8 +65,8 @@ export function ButtonLink({
       href={href}
       whileHover={{ y: -2 }}
       whileTap={{ y: 0 }}
-      transition={{ duration: 0.3 }}
-      className={`inline-flex items-center justify-center gap-2 font-body font-medium tracking-wide transition-shadow duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3 ${sizes[size]} ${variants[variant]} ${className}`}
+      transition={{ duration: 0.25 }}
+      className={`inline-flex items-center justify-center gap-2 font-body font-medium tracking-wide transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3 ${sizes[size]} ${variants[variant]} ${className}`}
     >
       {children}
     </motion.a>

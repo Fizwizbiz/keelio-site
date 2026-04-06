@@ -82,7 +82,7 @@ export default function AudioPlayer({ src }: AudioPlayerProps) {
         onClick={togglePlay}
         disabled={!available}
         aria-label={isPlaying ? 'Pause' : 'Lecture'}
-        className="w-8 h-8 flex items-center justify-center flex-shrink-0 border border-[var(--color-border)] text-[var(--color-accent)] hover:bg-[rgba(232,224,208,0.06)] transition-colors disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
+        className="w-8 h-8 flex items-center justify-center flex-shrink-0 border border-[var(--color-border)] text-[var(--color-accent)] hover:bg-[rgba(0,212,255,0.08)] transition-colors disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
       >
         {isPlaying ? (
           /* Pause icon */

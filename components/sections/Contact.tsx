@@ -90,7 +90,7 @@ export default function Contact() {
             </motion.div>
             <motion.h2
               variants={itemVariants}
-              className="font-display font-light text-[var(--color-text)] leading-tight"
+              className="font-display font-semibold text-[var(--color-text)] leading-tight"
               style={{ fontSize: 'clamp(1.875rem, 3.5vw, 3rem)' }}
             >
               Parlons de votre projet.

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Badge from '@/components/ui/Badge'
 
 const painPoints = [
@@ -62,6 +62,8 @@ const itemVariants = {
 }
 
 export default function Problem() {
+  const shouldReduce = useReducedMotion()
+
   return (
     <section
       id="probleme"
@@ -80,7 +82,7 @@ export default function Problem() {
           </motion.div>
           <motion.h2
             variants={itemVariants}
-            className="font-display font-light text-[var(--color-text)] leading-tight"
+            className="font-display font-semibold text-[var(--color-text)] leading-tight"
             style={{ fontSize: 'clamp(1.875rem, 3.5vw, 3rem)' }}
           >
             Chaque appel manqué est un client perdu.
@@ -98,11 +100,22 @@ export default function Problem() {
             <motion.div
               key={point.title}
               variants={itemVariants}
-              className="bg-[var(--color-bg)] p-8 lg:p-10 flex flex-col gap-5"
+              whileHover={shouldReduce ? undefined : {
+                y: -5,
+                boxShadow: '0 0 0 1px rgba(0,212,255,0.35), 0 0 18px rgba(0,212,255,0.10), 0 8px 24px rgba(0,0,0,0.4)',
+                zIndex: 1,
+              }}
+              transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+              style={{ position: 'relative' }}
+              className="bg-[var(--color-bg)] p-8 lg:p-10 flex flex-col gap-5 cursor-default"
             >
-              <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-border)] text-[var(--color-accent-muted)]">
+              <motion.div
+                className="w-10 h-10 flex items-center justify-center border border-[rgba(0,212,255,0.20)] bg-[rgba(0,212,255,0.05)] text-[var(--color-accent)]"
+                whileHover={shouldReduce ? undefined : { scale: 1.08 }}
+                transition={{ duration: 0.25 }}
+              >
                 {point.icon}
-              </div>
+              </motion.div>
               <div className="flex flex-col gap-2">
                 <h3 className="font-body font-medium text-[var(--color-text)] text-base">
                   {point.title}

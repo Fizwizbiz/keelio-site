@@ -34,38 +34,38 @@ Structure des dossiers :
 
 ### Direction artistique
 
-**Élégant, minimaliste, premium.** L'inspiration est celle des agences de conseil haut de gamme et des SaaS B2B modernes : Stripe, Linear, Vercel. L'utilisateur doit sentir qu'il a affaire à quelqu'un de sérieux dès les premières secondes.
+**Tech, premium, dark.** L'inspiration est celle des agences d'automatisation IA modernes et des SaaS B2B tech-forward : style dark midnight avec accents cyan. L'utilisateur doit sentir immédiatement puissance, sérieux et innovation. Fond sombre profond, texte blanc cassé, accent cyan vif.
 
 ### Palette de couleurs
 
 ```css
---color-bg:          #141414;   /* Gris anthracite — fond principal, plus vivable que le noir pur */
---color-surface:     #1E1E1E;   /* Surfaces distinctes, neutre chaud */
---color-border:      #2E2E2E;   /* Bordures visibles sans agressivité */
---color-accent:      #D4C5A9;   /* Crème doré — couleur principale de marque */
---color-accent-muted:#8F8270;   /* Accent atténué pour textes secondaires */
---color-text:        #F0EBE1;   /* Blanc cassé chaud — texte principal */
---color-text-muted:  #7A7570;   /* Texte secondaire, hints */
+--color-bg:           #0A0E1A;   /* Midnight profond — fond principal dark */
+--color-surface:      #111827;   /* Navy sombre — cards, surfaces élevées */
+--color-border:       #1E2A3A;   /* Bordures subtiles navy */
+--color-accent:       #00D4FF;   /* Cyan vif — CTA primaire, hover, highlights */
+--color-accent-muted: #0099CC;   /* Cyan atténué — états secondaires */
+--color-text:         #F0F4F8;   /* Blanc cassé froid — texte principal */
+--color-text-muted:   #8899AA;   /* Gris bleuté — textes secondaires */
 ```
 
-> Palette sombre et chaude — le fond est un anthracite habitable, pas un noir oppressant. L'accent crème doré donne un sentiment premium sans être agressif. Pas de bleu, pas de violet.
+> Palette dark — fond midnight navy profond, texte blanc cassé froid. L'accent cyan vif `#00D4FF` donne la signature tech/IA de Keelio. Le site est dark par conception. Les rgba hardcodés dans les composants utilisent la teinte `0,212,255` (équivalent de `#00D4FF`) pour les accents et `17,24,39` (équivalent de `#111827`) pour les surfaces.
 
 ### Typographie
 
-- **Display / Titres** : `Cormorant Garamond` (Google Fonts) — serif élégant, haut de gamme
-- **Corps / UI** : `DM Sans` (Google Fonts) — moderne, lisible, sobre
+- **Display / Titres** : `Poppins` (Google Fonts) — sans-serif moderne, dynamique, tech
+- **Corps / UI** : `Inter` (Google Fonts) — lisible, propre, standard SaaS B2B
 - **Code / monospace** : `JetBrains Mono` si nécessaire
 
 ```css
---font-display: 'Cormorant Garamond', serif;
---font-body:    'DM Sans', sans-serif;
+--font-display: 'Poppins', sans-serif;
+--font-body:    'Inter', sans-serif;
 ```
 
 Tailles :
-- H1 hero : `clamp(3rem, 6vw, 5.5rem)`, weight 300, letter-spacing -0.02em
-- H2 sections : `clamp(2rem, 4vw, 3.5rem)`, weight 300
-- Corps : `1rem` / `1.125rem`, weight 400, line-height 1.7
-- Caps label (badges) : `0.75rem`, weight 500, letter-spacing 0.12em, uppercase
+- H1 hero : `clamp(2.5rem, 5vw, 4.5rem)`, weight 700, letter-spacing -0.02em
+- H2 sections : `clamp(1.875rem, 3.5vw, 3rem)`, weight 600
+- Corps : `1rem` / `1.125rem`, weight 400, line-height 1.6-1.7
+- Caps label (badges) : `0.7rem`, weight 500, letter-spacing 0.12em, uppercase
 
 ### Animations
 
@@ -81,7 +81,8 @@ Tailles :
 - Ligne décorative fine (`1px solid var(--color-border)`) pour séparer visuellement sans alourdir
 - Grid asymétrique sur les features : pas de 3 colonnes identiques — varier les proportions
 - Pas de cartes avec shadows agressives — préférer `border: 1px solid var(--color-border)`
-- Pas de mode sombre / clair toggle — le site est sombre par conception
+- Glow cyan (`box-shadow: 0 0 20px rgba(0,212,255,0.3)`) sur les CTA primaires au hover
+- Pas de mode sombre / clair toggle — le site est dark par conception
 
 ## Contraintes et Politiques
 

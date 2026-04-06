@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Logo */}
           <a
             href="#"
-            className="font-display text-xl font-light tracking-[0.08em] text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3 flex-shrink-0"
+            className="font-display text-xl font-bold tracking-[-0.01em] text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3 flex-shrink-0"
           >
             Keelio
           </a>
@@ -19,13 +19,13 @@ export default function Footer() {
             <nav className="flex flex-wrap items-center justify-center md:justify-start gap-6" aria-label="Liens légaux">
               <a
                 href="#"
-                className="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-300 uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
+                className="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-300 uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
               >
                 Mentions légales
               </a>
               <a
                 href="#"
-                className="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-300 uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
+                className="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-300 uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
               >
                 Politique de confidentialité
               </a>

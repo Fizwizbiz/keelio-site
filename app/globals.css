@@ -4,17 +4,17 @@
 
 :root {
   /* Colors */
-  --color-bg:           #141414;   /* gris anthracite — plus vivable que le noir pur */
-  --color-surface:      #1E1E1E;   /* surface distincte et neutre */
-  --color-border:       #2E2E2E;   /* bordures visibles sans agressivité */
-  --color-accent:       #D4C5A9;   /* crème doré — signature Keelio */
-  --color-accent-muted: #8F8270;   /* accent secondaire atténué */
-  --color-text:         #F0EBE1;   /* blanc cassé chaud */
-  --color-text-muted:   #7A7570;   /* texte secondaire lisible */
+  --color-bg:           #0A0E1A;   /* Midnight profond — fond principal dark */
+  --color-surface:      #111827;   /* Navy sombre — cards, surfaces élevées */
+  --color-border:       #1E2A3A;   /* Bordures subtiles navy */
+  --color-accent:       #00D4FF;   /* Cyan vif — CTA primaire, hover, highlights */
+  --color-accent-muted: #0099CC;   /* Cyan atténué — états secondaires */
+  --color-text:         #F0F4F8;   /* Blanc cassé froid — texte principal */
+  --color-text-muted:   #8899AA;   /* Gris bleuté — textes secondaires */
 
   /* Typography */
-  --font-display: 'Cormorant Garamond', serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+  --font-body:    'Inter', sans-serif;
 
   /* Spacing */
   --section-padding: 8rem 0;
@@ -70,14 +70,9 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 128px;
-  opacity: 0.028;
+  opacity: 0.035;
   pointer-events: none;
   z-index: 9999;
-}
-
-/* ─── Heading glow ─────────────────────────────────────────────────────────── */
-h1, h2 {
-  text-shadow: 0 0 80px rgba(232, 224, 208, 0.14);
 }
 
 /* ─── Section visual separation ────────────────────────────────────────────── */
@@ -90,12 +85,12 @@ h1, h2 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 110% 55% at 50% -5%, rgba(232, 224, 208, 0.18) 0%, rgba(232, 224, 208, 0.06) 45%, transparent 72%);
+    radial-gradient(ellipse 110% 55% at 50% -5%, rgba(0, 212, 255, 0.04) 0%, rgba(0, 212, 255, 0.02) 45%, transparent 72%);
   pointer-events: none;
 }
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(232, 224, 208, 0.22) 30%, rgba(232, 224, 208, 0.22) 70%, transparent);
+  background: linear-gradient(to right, transparent, rgba(0, 212, 255, 0.08) 30%, rgba(0, 212, 255, 0.08) 70%, transparent);
   flex-shrink: 0;
 }
