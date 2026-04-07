@@ -195,9 +195,9 @@ export default function PolitiqueConfidentialitePage() {
                 {article.title}
               </h2>
 
-              {'content' in article && (
+              {'content' in article && article.content && (
                 <div className="flex flex-col gap-4">
-                  {article.content.split('\n\n').map((paragraph, i) => (
+                  {(article.content as string).split('\n\n').map((paragraph, i) => (
                     <p key={i} className="font-body text-sm leading-relaxed text-[var(--color-text-muted)] whitespace-pre-line">
                       {paragraph}
                     </p>
