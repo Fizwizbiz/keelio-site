@@ -13,13 +13,13 @@ interface AccordionItemProps {
 
 export function AccordionItem({ question, answer, isOpen, onToggle, index }: AccordionItemProps) {
   return (
-    <div className="border-b border-[var(--color-border)]">
+    <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden">
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={`accordion-answer-${index}`}
         id={`accordion-question-${index}`}
-        className="w-full flex items-center justify-between gap-4 py-5 text-left font-body text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
+        className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left font-body text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
       >
         <span className="text-[1rem] font-medium leading-snug pr-4">{question}</span>
         <motion.span
@@ -49,7 +49,7 @@ export function AccordionItem({ question, answer, isOpen, onToggle, index }: Acc
             transition={{ duration: 0.3 }}
             style={{ overflow: 'hidden' }}
           >
-            <p className="pb-5 text-[var(--color-text-muted)] font-body text-[0.9375rem] leading-relaxed pr-8">
+            <p className="px-5 pb-5 text-[var(--color-text-muted)] font-body text-[0.9375rem] leading-relaxed pr-8">
               {answer}
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ interface AccordionProps {
 
 export default function Accordion({ items, openIndex, onToggle }: AccordionProps) {
   return (
-    <div className="border-t border-[var(--color-border)]">
+    <div className="flex flex-col gap-3">
       {items.map((item, i) => (
         <AccordionItem
           key={i}

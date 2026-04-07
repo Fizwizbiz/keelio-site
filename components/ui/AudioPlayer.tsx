@@ -70,7 +70,7 @@ export default function AudioPlayer({ src }: AudioPlayerProps) {
 
   return (
     <div
-      className={`flex items-center gap-4 px-4 py-3 border border-[var(--color-border)] bg-[var(--color-surface)] ${!available ? 'opacity-50' : ''}`}
+      className={`flex items-center gap-4 px-4 py-3 border border-[var(--color-border)] bg-[var(--color-surface)] rounded-xl ${!available ? 'opacity-50' : ''}`}
       role="region"
       aria-label="Lecteur audio"
     >

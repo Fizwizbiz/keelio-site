@@ -12,6 +12,13 @@
   --color-text:         #E8F4F8;   /* Blanc légèrement bleuté — texte principal */
   --color-text-muted:   #7A9BB5;   /* Bleu-gris — textes secondaires */
 
+  /* Tokens sections claires */
+  --color-bg-light:        #F8FAFC;   /* Fond section claire */
+  --color-surface-light:   #FFFFFF;   /* Surface card sur fond clair */
+  --color-text-dark:       #0D1B2A;   /* Texte principal sur fond clair */
+  --color-text-dark-muted: #5A7A94;   /* Texte secondaire sur fond clair */
+  --color-border-light:    #E2EAF0;   /* Bordure sur fond clair */
+
   /* Grid pattern — réutilisable */
   --grid-pattern:
     linear-gradient(rgba(0, 212, 255, 0.045) 1px, transparent 1px),
@@ -56,6 +63,13 @@ body {
     text-wrap: balance;
   }
 
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   .font-display {
     font-family: var(--font-display);
   }
@@ -71,6 +85,10 @@ body {
 
   .section-surface {
     background-color: var(--color-surface);
+  }
+
+  .section-light {
+    background-color: var(--color-bg-light);
   }
 
   /* Quadrillage — appliqué uniquement sur les sections choisies */

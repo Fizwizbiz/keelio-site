@@ -14,9 +14,9 @@ const sizes: Record<Size, string> = {
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-[var(--color-accent)] text-[#0A0E1A] font-semibold hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] hover:bg-[#1ADEFF]',
+    'bg-[var(--color-accent)] text-[#0A0E1A] font-semibold rounded-lg hover:shadow-[0_0_24px_rgba(0,212,255,0.35)] hover:bg-[#1ADEFF]',
   ghost:
-    'bg-transparent text-[var(--color-accent)] border border-[var(--color-accent)] hover:bg-[rgba(0,212,255,0.06)] hover:shadow-[0_0_16px_rgba(0,212,255,0.15)]',
+    'bg-transparent text-[var(--color-accent)] border border-[var(--color-accent)] rounded-lg hover:bg-[rgba(0,212,255,0.06)] hover:shadow-[0_0_16px_rgba(0,212,255,0.15)]',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

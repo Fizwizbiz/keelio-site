@@ -90,7 +90,7 @@ export default function Problem() {
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-px bg-[var(--color-border)]"
+          className="grid md:grid-cols-3 gap-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
@@ -107,7 +107,7 @@ export default function Problem() {
               }}
               transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
               style={{ position: 'relative' }}
-              className="bg-[var(--color-bg)] p-8 lg:p-10 flex flex-col gap-5 cursor-default"
+              className="bg-[var(--color-bg)] p-8 lg:p-10 flex flex-col gap-5 cursor-default rounded-2xl"
             >
               <motion.div
                 className="w-10 h-10 flex items-center justify-center border border-[rgba(0,212,255,0.20)] bg-[rgba(0,212,255,0.05)] text-[var(--color-accent)]"

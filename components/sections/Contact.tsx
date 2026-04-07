@@ -21,7 +21,7 @@ type FormValues = z.infer<typeof schema>
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const inputClass =
-  'w-full bg-transparent border border-[var(--color-border)] text-[var(--color-text)] font-body text-sm px-4 py-3 placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-muted)] transition-colors duration-300'
+  'w-full bg-transparent border border-[var(--color-border)] text-[var(--color-text)] font-body text-sm px-4 py-3 rounded-lg placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-muted)] transition-colors duration-300'
 
 const containerVariants = {
   hidden: {},
@@ -132,7 +132,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-col gap-4 p-8 border border-[var(--color-border)] bg-[var(--color-surface)]"
+                className="flex flex-col gap-4 p-8 border border-[var(--color-border)] bg-[var(--color-surface)] rounded-2xl"
               >
                 <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-accent-muted)]">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -156,7 +156,7 @@ export default function Contact() {
                 {status === 'error' && (
                   <div
                     role="alert"
-                    className="p-4 border border-[rgba(220,100,100,0.3)] bg-[rgba(220,100,100,0.05)] font-body text-sm text-[rgba(220,150,150,1)]"
+                    className="p-4 border border-[rgba(220,100,100,0.3)] bg-[rgba(220,100,100,0.05)] font-body text-sm text-[rgba(220,150,150,1)] rounded-lg"
                   >
                     {errorMessage}
                   </div>

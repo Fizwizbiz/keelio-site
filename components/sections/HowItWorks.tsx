@@ -60,83 +60,60 @@ function StepCard({ step, index, shouldReduce }: StepCardProps) {
   return (
     <motion.div
       variants={itemVariants}
-      className={`relative flex-1 flex flex-col gap-6 ${desktopOffsets[index]}`}
+      className={`relative flex-1 ${desktopOffsets[index]}`}
       onHoverStart={() => !shouldReduce && setHovered(true)}
       onHoverEnd={() => setHovered(false)}
     >
-      {/* Horizontal separator on mobile */}
-      {index > 0 && (
-        <div
-          className="lg:hidden absolute -top-8 left-0 right-0 h-px"
-          style={{ background: 'linear-gradient(to right, var(--color-accent), transparent)', opacity: 0.20 }}
-          aria-hidden="true"
-        />
-      )}
-      {/* Vertical connector on desktop */}
-      {index > 0 && (
-        <div
-          className="hidden lg:block absolute top-8 -left-3 w-px"
-          style={{ height: '80px', background: 'linear-gradient(to bottom, transparent, var(--color-accent), transparent)', opacity: 0.18 }}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Ghost number — large decorative background */}
-      <span
-        className="absolute -top-6 right-0 font-display font-bold select-none pointer-events-none"
-        style={{
-          fontSize: 'clamp(5rem, 10vw, 9rem)',
-          color: 'var(--color-accent)',
-          opacity: 0.05,
-          lineHeight: 1,
-          letterSpacing: '-0.04em',
+      {/* Card container */}
+      <motion.div
+        animate={shouldReduce ? undefined : {
+          y: hovered ? -5 : 0,
+          boxShadow: hovered
+            ? '0 0 0 1px rgba(0,212,255,0.35), 0 0 16px rgba(0,212,255,0.15), 0 8px 24px rgba(0,0,0,0.08)'
+            : '0 0 0 1px rgba(226,234,240,1), 0 2px 8px rgba(0,0,0,0.04)',
         }}
-        aria-hidden="true"
+        transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+        className="relative overflow-hidden bg-[var(--color-surface-light)] border border-[var(--color-border-light)] rounded-2xl p-6 lg:p-8 flex flex-col gap-6"
       >
-        {step.number}
-      </span>
-
-      {/* Step number label */}
-      <div className="flex items-center gap-3 lg:block">
+        {/* Ghost number — large decorative background */}
         <span
-          className="lg:hidden flex-shrink-0 bg-[var(--color-accent)]"
-          style={{ width: '20px', height: '2px', opacity: 0.5 }}
+          className="absolute -top-4 right-4 font-display font-bold select-none pointer-events-none"
+          style={{
+            fontSize: 'clamp(5rem, 10vw, 9rem)',
+            color: 'var(--color-accent)',
+            opacity: 0.06,
+            lineHeight: 1,
+            letterSpacing: '-0.04em',
+          }}
           aria-hidden="true"
-        />
+        >
+          {step.number}
+        </span>
+
+        {/* Step number label */}
         <span className="font-body text-[0.7rem] font-bold text-[var(--color-accent)] tracking-[0.16em] uppercase">
           {step.number}
         </span>
-      </div>
 
-      {/* Inner content — translates on hover */}
-      <motion.div
-        animate={shouldReduce ? undefined : { x: hovered ? -3 : 0 }}
-        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        className="flex flex-col gap-6"
-      >
-        {/* Vertical line + title */}
+        {/* Title */}
         <div className="flex items-start gap-4">
           <motion.div
             className="flex-shrink-0 bg-[var(--color-accent)] mt-1"
-            style={{
-              width: '2px',
-              height: '48px',
-              transformOrigin: 'top',
-            }}
+            style={{ width: '2px', height: '48px', transformOrigin: 'top' }}
             variants={lineVariants}
-            animate={shouldReduce ? undefined : { opacity: hovered ? 0.6 : 0.35 }}
+            animate={shouldReduce ? undefined : { opacity: hovered ? 0.7 : 0.4 }}
             transition={{ duration: 0.3 }}
             aria-hidden="true"
           />
           <h3
-            className="font-display font-semibold text-[var(--color-text)] leading-tight"
+            className="font-display font-semibold text-[var(--color-text-dark)] leading-tight"
             style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
           >
             {step.title}
           </h3>
         </div>
 
-        <p className="font-body text-[var(--color-text-muted)] text-sm leading-relaxed max-w-[18rem]">
+        <p className="font-body text-[var(--color-text-dark-muted)] text-sm leading-relaxed">
           {step.description}
         </p>
       </motion.div>
@@ -152,13 +129,13 @@ export default function HowItWorks() {
   return (
     <section
       id="comment-ca-marche"
-      className="py-32 bg-[var(--color-bg)] overflow-x-hidden"
+      className="py-20 section-light overflow-x-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
-          className="flex flex-col gap-5 mb-24 max-w-xl"
+          className="flex flex-col gap-5 mb-14 max-w-xl"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
@@ -169,7 +146,7 @@ export default function HowItWorks() {
           </motion.div>
           <motion.h2
             variants={itemVariants}
-            className="font-display font-bold text-[var(--color-text)] leading-tight"
+            className="font-display font-bold text-[var(--color-text-dark)] leading-tight"
             style={{ fontSize: 'clamp(1.875rem, 3.5vw, 3rem)' }}
           >
             Opérationnel en 3 étapes.
@@ -178,7 +155,7 @@ export default function HowItWorks() {
 
         {/* Steps — staircase layout */}
         <motion.div
-          className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-16 lg:gap-6 pb-16 lg:pb-40"
+          className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-6 pb-4 lg:pb-20"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
