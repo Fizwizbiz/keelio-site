@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
             <nav className="flex flex-wrap items-center justify-center md:justify-start gap-6" aria-label="Liens légaux">
               <a
-                href="#"
+                href="/mentions-legales"
                 className="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-300 uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
               >
                 Mentions légales
@@ -30,7 +30,7 @@ export default function Footer() {
                 CGV
               </a>
               <a
-                href="#"
+                href="/politique-confidentialite"
                 className="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-300 uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
               >
                 Politique de confidentialité
