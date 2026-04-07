@@ -24,6 +24,12 @@ export default function Footer() {
                 Mentions légales
               </a>
               <a
+                href="/cgv"
+                className="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-300 uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
+              >
+                CGV
+              </a>
+              <a
                 href="#"
                 className="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-300 uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
               >
