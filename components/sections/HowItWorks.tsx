@@ -73,15 +73,22 @@ function StepCard({ step, index, shouldReduce }: StepCardProps) {
             : '0 0 0 1px rgba(226,234,240,1), 0 2px 8px rgba(0,0,0,0.04)',
         }}
         transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-        className="relative overflow-hidden bg-[var(--color-surface-light)] border border-[var(--color-border-light)] rounded-2xl p-6 lg:p-8 flex flex-col gap-6"
+        className="relative overflow-hidden bg-[var(--color-surface-light)] border border-[var(--color-border-light)] rounded-2xl p-6 lg:p-8 pl-10 flex flex-col gap-6"
       >
+        {/* Accent bar gauche */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--color-accent)]"
+          style={{ opacity: hovered ? 1 : 0.5, transition: 'opacity 0.3s' }}
+          aria-hidden="true"
+        />
+
         {/* Ghost number — large decorative background */}
         <span
           className="absolute -top-4 right-4 font-display font-bold select-none pointer-events-none"
           style={{
             fontSize: 'clamp(5rem, 10vw, 9rem)',
             color: 'var(--color-accent)',
-            opacity: 0.06,
+            opacity: 0.05,
             lineHeight: 1,
             letterSpacing: '-0.04em',
           }}

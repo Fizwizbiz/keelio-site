@@ -2,7 +2,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-[var(--color-border)]">
+    <footer className="border-t border-[rgba(0,212,255,0.2)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
         {/* Desktop layout */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 text-center md:text-left">

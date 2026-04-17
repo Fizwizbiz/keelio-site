@@ -43,9 +43,16 @@ export default function Nav() {
             {/* Logo */}
             <a
               href="#"
-              className="font-display text-xl font-bold tracking-[-0.01em] text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
+              className="flex items-center gap-2.5 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-3"
             >
-              Keelio
+              <div className="w-8 h-8 rounded-lg bg-[rgba(0,212,255,0.08)] border border-[rgba(0,212,255,0.25)] flex items-center justify-center group-hover:bg-[rgba(0,212,255,0.15)] transition-colors duration-300">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M8.5 1.5L3 7.5H7L5.5 12.5L11 6.5H7.5L8.5 1.5Z" fill="var(--color-accent)" />
+                </svg>
+              </div>
+              <span className="font-display text-xl font-bold tracking-[-0.01em] text-[var(--color-accent)]">
+                Keelio
+              </span>
             </a>
 
             {/* Desktop nav */}

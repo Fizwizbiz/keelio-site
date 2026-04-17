@@ -188,7 +188,7 @@ export default function Hero() {
               style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
             >
               Votre entreprise répond,{' '}
-              <span style={{ color: 'var(--color-accent)' }}>même quand vous dormez.</span>
+              <span style={{ background: 'linear-gradient(90deg, #00D4FF, #60a5fa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>même quand vous dormez.</span>
             </motion.h1>
 
             <motion.p

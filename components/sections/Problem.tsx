@@ -107,10 +107,10 @@ export default function Problem() {
               }}
               transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
               style={{ position: 'relative' }}
-              className="bg-[var(--color-bg)] p-8 lg:p-10 flex flex-col gap-5 cursor-default rounded-2xl"
+              className="bg-[var(--color-bg)] p-8 lg:p-10 flex flex-col gap-5 cursor-default rounded-2xl border border-[var(--color-border)] hover:border-[rgba(0,212,255,0.30)] transition-colors duration-300"
             >
               <motion.div
-                className="w-10 h-10 flex items-center justify-center border border-[rgba(0,212,255,0.20)] bg-[rgba(0,212,255,0.05)] text-[var(--color-accent)]"
+                className="w-11 h-11 flex items-center justify-center border border-[rgba(0,212,255,0.20)] bg-[rgba(0,212,255,0.05)] text-[var(--color-accent)] rounded-lg"
                 whileHover={shouldReduce ? undefined : { scale: 1.08 }}
                 transition={{ duration: 0.25 }}
               >

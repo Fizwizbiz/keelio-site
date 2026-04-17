@@ -21,7 +21,7 @@ type FormValues = z.infer<typeof schema>
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const inputClass =
-  'w-full bg-transparent border border-[var(--color-border)] text-[var(--color-text)] font-body text-sm px-4 py-3 rounded-lg placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-muted)] transition-colors duration-300'
+  'w-full bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] font-body text-sm px-4 py-3 rounded-lg placeholder:text-[rgba(122,155,181,0.45)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[rgba(0,212,255,0.2)] transition-colors duration-300'
 
 const containerVariants = {
   hidden: {},
