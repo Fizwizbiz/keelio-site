@@ -1,48 +1,49 @@
-import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const display = localFont({
+  src: "./fonts/manrope-latin.woff2",
+  weight: "400 700",
   variable: "--font-display",
   display: "swap",
 });
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500"],
+const body = localFont({
+  src: "./fonts/dm-sans-latin.woff2",
+  weight: "400 700",
   variable: "--font-body",
   display: "swap",
 });
-
+const title = "Assistant vocal IA pour votre entreprise | Keelio";
+const description =
+  "Keelio accueille vos appels, répond aux questions de vos clients et organise vos rendez-vous. Un assistant vocal IA adapté à votre entreprise. Demandez une démo.";
 export const metadata: Metadata = {
-  title: "Keelio — Votre entreprise répond, même quand vous dormez.",
-  description:
-    "Keelio automatise les interactions clients de votre entreprise grâce à l'IA. Disponible 24h/24, 7j/7. Simple à mettre en place pour les TPE et PME françaises.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: title, template: "%s | Keelio" },
+  description,
+  applicationName: "Keelio",
   openGraph: {
-    title: "Keelio — Automatisation IA pour TPE & PME",
-    description:
-      "Keelio automatise les interactions clients de votre entreprise grâce à l'IA. Disponible 24h/24, 7j/7.",
+    title,
+    description,
     type: "website",
     locale: "fr_FR",
+    siteName: "Keelio",
+    url: SITE_URL,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Keelio — Automatisation IA pour TPE & PME",
-    description:
-      "Keelio automatise les interactions clients de votre entreprise grâce à l'IA. Disponible 24h/24, 7j/7.",
-  },
+  twitter: { card: "summary_large_image", title, description },
+  robots: { index: true, follow: true },
 };
-
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#091d24",
+};
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${poppins.variable} ${inter.variable}`}>
-      <body className="antialiased">{children}</body>
+    <html lang="fr" className={display.variable + " " + body.variable}>
+      <body>{children}</body>
     </html>
   );
 }

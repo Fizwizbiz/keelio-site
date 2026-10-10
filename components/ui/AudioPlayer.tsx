@@ -1,187 +1,112 @@
-'use client'
-
-import { useEffect, useRef, useState } from 'react'
-
-function formatTime(seconds: number): string {
-  if (isNaN(seconds) || !isFinite(seconds)) return '0:00'
-  const m = Math.floor(seconds / 60)
-  const s = Math.floor(seconds % 60)
-  return `${m}:${s.toString().padStart(2, '0')}`
+"use client";
+import { useRef, useState } from "react";
+import Icon from "./Icon";
+function time(value: number) {
+  return Number.isFinite(value)
+    ? Math.floor(value / 60) +
+        ":" +
+        Math.floor(value % 60)
+          .toString()
+          .padStart(2, "0")
+    : "0:00";
 }
-
-interface AudioPlayerProps {
-  src: string
-  light?: boolean
-}
-
-export default function AudioPlayer({ src, light = false }: AudioPlayerProps) {
-  const audioRef = useRef<HTMLAudioElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(0)
-  const [available, setAvailable] = useState(true)
-
-  useEffect(() => {
-    const audio = audioRef.current
-    if (!audio) return
-
-    const onLoadedMetadata = () => setDuration(audio.duration)
-    const onTimeUpdate = () => setCurrentTime(audio.currentTime)
-    const onEnded = () => {
-      setIsPlaying(false)
-      setCurrentTime(0)
-      if (audio) audio.currentTime = 0
+const bars = [
+  12, 22, 16, 30, 46, 24, 54, 72, 42, 28, 60, 88, 68, 40, 76, 96, 60, 34, 52,
+  82, 98, 66, 44, 72, 92, 54, 28, 64, 80, 42, 24, 50, 68, 36, 18, 28, 14,
+];
+export default function AudioPlayer({ src }: { src: string; light?: boolean }) {
+  const audio = useRef<HTMLAudioElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [position, setPosition] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [error, setError] = useState("");
+  async function toggle() {
+    if (!audio.current) return;
+    if (playing) {
+      audio.current.pause();
+      return;
     }
-    const onError = () => setAvailable(false)
-
-    audio.addEventListener('loadedmetadata', onLoadedMetadata)
-    audio.addEventListener('timeupdate', onTimeUpdate)
-    audio.addEventListener('ended', onEnded)
-    audio.addEventListener('error', onError)
-
-    return () => {
-      audio.removeEventListener('loadedmetadata', onLoadedMetadata)
-      audio.removeEventListener('timeupdate', onTimeUpdate)
-      audio.removeEventListener('ended', onEnded)
-      audio.removeEventListener('error', onError)
-    }
-  }, [])
-
-  const togglePlay = () => {
-    const audio = audioRef.current
-    if (!audio || !available) return
-    if (isPlaying) {
-      audio.pause()
-      setIsPlaying(false)
-    } else {
-      audio.play()
-      setIsPlaying(true)
+    try {
+      setError("");
+      await audio.current.play();
+    } catch {
+      setError(
+        "La lecture est indisponible. Réessayez ou contactez-nous pour une démo.",
+      );
     }
   }
-
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const audio = audioRef.current
-    if (!audio || !available) return
-    const value = Number(e.target.value)
-    audio.currentTime = value
-    setCurrentTime(value)
-  }
-
-  const progress = duration > 0 ? (currentTime / duration) * 100 : 0
-
-  if (light) {
-    return (
-      <div
-        className={`flex items-center gap-3 px-2 py-2 border border-slate-200 bg-white rounded-full shadow-sm hover:shadow-md transition-shadow ${!available ? 'opacity-50' : ''}`}
-        role="region"
-        aria-label="Lecteur audio"
-      >
-        <audio ref={audioRef} src={src} preload="metadata" />
-
-        <button
-          onClick={togglePlay}
-          disabled={!available}
-          aria-label={isPlaying ? 'Pause' : 'Lecture'}
-          className="w-8 h-8 flex items-center justify-center flex-shrink-0 rounded-full bg-[rgba(0,212,255,0.1)] text-[var(--color-accent-muted)] hover:bg-[var(--color-accent)] hover:text-[#0B1629] transition-colors duration-300 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
-        >
-          {isPlaying ? (
-            <svg width="10" height="12" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true">
-              <rect x="0" y="0" width="4" height="14" rx="1" />
-              <rect x="8" y="0" width="4" height="14" rx="1" />
-            </svg>
-          ) : (
-            <svg width="10" height="12" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true">
-              <path d="M1 1.5v11l10-5.5L1 1.5z" />
-            </svg>
-          )}
-        </button>
-
-        <div className="flex-1 flex flex-col gap-1 min-w-0">
-          <div className="relative h-1.5 bg-slate-100 rounded-full overflow-hidden">
-            <div
-              className="absolute inset-y-0 left-0 bg-[var(--color-accent-muted)] rounded-full pointer-events-none transition-all"
-              style={{ width: `${progress}%` }}
-            />
-            <input
-              type="range"
-              min={0}
-              max={duration || 0}
-              step={0.1}
-              value={currentTime}
-              onChange={handleSeek}
-              disabled={!available}
-              aria-label="Position dans l'audio"
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
-            />
-          </div>
-        </div>
-
-        <span className="font-body text-[0.65rem] text-slate-400 font-mono tabular-nums pr-1 flex-shrink-0">
-          {available ? (
-            `${formatTime(currentTime)} / ${formatTime(duration)}`
-          ) : (
-            'À venir'
-          )}
-        </span>
-      </div>
-    )
-  }
-
   return (
-    <div
-      className={`flex items-center gap-4 px-4 py-3 border border-[var(--color-border)] bg-[var(--color-surface)] rounded-xl ${!available ? 'opacity-50' : ''}`}
-      role="region"
-      aria-label="Lecteur audio"
-    >
-      <audio ref={audioRef} src={src} preload="metadata" />
-
-      <button
-        onClick={togglePlay}
-        disabled={!available}
-        aria-label={isPlaying ? 'Pause' : 'Lecture'}
-        className="w-8 h-8 flex items-center justify-center flex-shrink-0 border border-[var(--color-border)] text-[var(--color-accent)] hover:bg-[rgba(0,212,255,0.08)] transition-colors disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)] focus-visible:outline-offset-2"
-      >
-        {isPlaying ? (
-          <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true">
-            <rect x="0" y="0" width="4" height="14" rx="1" />
-            <rect x="8" y="0" width="4" height="14" rx="1" />
-          </svg>
-        ) : (
-          <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden="true">
-            <path d="M1 1.5v11l10-5.5L1 1.5z" />
-          </svg>
-        )}
-      </button>
-
-      <div className="flex-1 flex flex-col gap-1.5 min-w-0">
-        <div className="relative h-1 bg-[var(--color-border)]">
-          <div
-            className="absolute inset-y-0 left-0 bg-[var(--color-accent-muted)] pointer-events-none"
-            style={{ width: `${progress}%` }}
+    <div className={playing ? "voice-player is-playing" : "voice-player"}>
+      <audio
+        ref={audio}
+        src={src}
+        preload="none"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onEnded={() => setPlaying(false)}
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+        onTimeUpdate={(e) => setPosition(e.currentTarget.currentTime)}
+        onError={() => {
+          setPlaying(false);
+          setError("Cet enregistrement est momentanément indisponible.");
+        }}
+      />
+      <div className="waveform" aria-hidden="true">
+        {bars.map((height, i) => (
+          <span
+            key={i}
+            style={{ height: height + "%", animationDelay: i * -0.087 + "s" }}
           />
+        ))}
+      </div>
+      <div className="audio-controls">
+        <button
+          type="button"
+          onClick={toggle}
+          className="audio-play"
+          aria-label={
+            playing ? "Mettre la démo en pause" : "Écouter la démo audio"
+          }
+        >
+          <Icon name={playing ? "pause" : "play"} />
+        </button>
+        <div className="audio-track">
+          <strong>
+            {playing
+              ? "Écoutez Keelio en action"
+              : "Une voix. Une vraie conversation."}
+          </strong>
+          <label className="sr-only" htmlFor="demo-position">
+            Position dans la démonstration audio
+          </label>
           <input
+            id="demo-position"
             type="range"
-            min={0}
-            max={duration || 0}
-            step={0.1}
-            value={currentTime}
-            onChange={handleSeek}
-            disabled={!available}
-            aria-label="Position dans l'audio"
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
+            min="0"
+            max={duration || 1}
+            step="0.1"
+            value={position}
+            disabled={!duration}
+            onChange={(e) => {
+              if (audio.current) {
+                audio.current.currentTime = Number(e.target.value);
+                setPosition(Number(e.target.value));
+              }
+            }}
+            aria-valuetext={time(position) + " sur " + time(duration)}
           />
-        </div>
-        <div className="flex justify-between font-body text-[0.65rem] text-[var(--color-text-muted)]">
-          {available ? (
-            <>
-              <span>{formatTime(currentTime)}</span>
-              <span>{formatTime(duration)}</span>
-            </>
-          ) : (
-            <span className="w-full text-center">Enregistrement à venir</span>
-          )}
+          <span className="audio-time">
+            {time(position)}
+            {duration > 0 && " / " + time(duration)}{" "}
+            <span>Démo enregistrée</span>
+          </span>
         </div>
       </div>
+      {error && (
+        <p className="audio-error" role="alert">
+          {error}
+        </p>
+      )}
     </div>
-  )
+  );
 }

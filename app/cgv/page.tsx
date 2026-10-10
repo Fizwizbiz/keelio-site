@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Conditions Générales de Vente — Keelio',
+  title: { absolute: 'Conditions générales de vente | Keelio' },
+  alternates: { canonical: '/cgv' },
   description: 'Conditions Générales de Vente de Keelio, version en vigueur au 1er janvier 2026.',
-  robots: { index: false },
+  robots: { index: false, follow: true },
 }
 
 const articles = [

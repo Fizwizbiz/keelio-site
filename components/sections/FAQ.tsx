@@ -1,116 +1,66 @@
-'use client'
-
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import Badge from '@/components/ui/Badge'
-import Accordion from '@/components/ui/Accordion'
-
-const faqItems = [
-  {
-    question: 'Quel est le tarif ?',
-    answer:
-      "Nous établissons un devis personnalisé selon votre activité, le volume d'interactions et vos besoins spécifiques. Contactez-nous pour obtenir une offre adaptée — sans engagement.",
-  },
-  {
-    question: 'Combien de temps pour être opérationnel ?',
-    answer:
-      "En général, 48 à 72 heures. Nous gérons l'intégration de A à Z.",
-  },
-  {
-    question: 'Comment Keelio répond-il à mes clients ?',
-    answer:
-      "Keelio utilise l'IA pour comprendre les demandes et y répondre de façon naturelle, en suivant les informations et le ton que vous lui avez fournis.",
-  },
-  {
-    question: 'Dois-je signer un engagement longue durée ?',
-    answer:
-      'Non. Nos offres sont sans engagement. Vous pouvez arrêter à tout moment.',
-  },
-  {
-    question: "Keelio s'intègre-t-il à mes outils actuels ?",
-    answer:
-      'Oui. Keelio se connecte à la plupart des outils professionnels : CRM, agenda, email, WhatsApp, et plus encore.',
-  },
-  {
-    question: 'Que se passe-t-il si Keelio ne sait pas répondre ?',
-    answer:
-      'Keelio escalade automatiquement les demandes complexes vers votre équipe. Aucun client ne reste sans réponse.',
-  },
-]
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-}
-
+const items = [
+  [
+    "Qu’est-ce qu’un assistant vocal IA ?",
+    "C’est un assistant qui échange avec vos clients par téléphone. Keelio utilise les informations et les règles définies avec vous pour répondre aux questions courantes, recueillir une demande et organiser des rendez-vous dans un agenda connecté.",
+  ],
+  [
+    "Est-ce que je conserve mon numéro professionnel ?",
+    "Le fonctionnement prévu repose sur un renvoi d’appel depuis votre numéro actuel vers le numéro de l’assistant. Nous définissons avec vous les situations dans lesquelles il prend le relais et vérifions les modalités de renvoi avec votre téléphonie.",
+  ],
+  [
+    "Quels outils peut-on connecter ?",
+    "Keelio peut gérer les rendez-vous dans Google Calendar et le suivi de contacts et d’appels dans Google Sheets. Pour un autre agenda ou logiciel métier, nous vérifions la compatibilité et le périmètre avant de vous faire une proposition.",
+  ],
+  [
+    "Que se passe-t-il si l’assistant ne sait pas répondre ?",
+    "Nous définissons les limites de l’assistant avec vous. Pour une demande hors périmètre, le scénario peut prévoir de recueillir les informations nécessaires afin que votre équipe reprenne le contact. Les modalités sont validées pendant les tests.",
+  ],
+  [
+    "Combien coûte Keelio ?",
+    "Le tarif est établi sur devis, selon le volume d’appels, les scénarios et les connexions nécessaires. La proposition précise la configuration, les frais récurrents, les éventuels coûts d’usage et les conditions de service. La demande de démonstration est sans engagement.",
+  ],
+  [
+    "Comment se passe la mise en place ?",
+    "Nous cadrons votre besoin, configurons l’assistant et les connexions convenues, puis testons les scénarios avec vous. Le calendrier dépend du périmètre et de la disponibilité des informations et accès nécessaires ; il est précisé dans votre proposition.",
+  ],
+];
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-
-  const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
-
   return (
     <section
+      className="faq-section light-section"
       id="faq"
-      className="py-32 section-bg"
+      aria-labelledby="faq-title"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-start">
-          <motion.div
-            className="flex flex-col gap-5 lg:sticky lg:top-24"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            variants={containerVariants}
-          >
-            <motion.div variants={itemVariants}>
-              <Badge>FAQ</Badge>
-            </motion.div>
-            <motion.h2
-              variants={itemVariants}
-              className="font-display font-semibold text-[var(--color-text)] leading-tight"
-              style={{ fontSize: 'clamp(1.875rem, 3.5vw, 3rem)' }}
-            >
-              Vos questions, nos réponses.
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="font-body text-[var(--color-text-muted)] text-sm leading-relaxed"
-            >
-              Une autre question ? Écrivez-nous à{' '}
-              <a
-                href="mailto:contact@keelio.fr"
-                className="text-[var(--color-accent-muted)] hover:text-[var(--color-accent)] transition-colors duration-300"
-              >
-                contact@keelio.fr
-              </a>
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <Accordion
-              items={faqItems}
-              openIndex={openIndex}
-              onToggle={handleToggle}
-            />
-          </motion.div>
+      <div className="container faq-grid">
+        <div>
+          <p className="eyebrow">Tout simplement</p>
+          <h2 id="faq-title" className="section-title">
+            Les bonnes questions.
+            <br />
+            Des réponses claires.
+          </h2>
+          <p className="section-copy">
+            Un besoin particulier ?<br />
+            <a className="inline-link" href="#contact">
+              Parlons-en ensemble.
+            </a>
+          </p>
+        </div>
+        <div className="faq-list">
+          {items.map(([question, answer], i) => (
+            <details key={question} className="faq-item">
+              <summary>
+                <span className="faq-number">0{i + 1}</span>
+                <h3>{question}</h3>
+                <span className="faq-toggle" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p>{answer}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

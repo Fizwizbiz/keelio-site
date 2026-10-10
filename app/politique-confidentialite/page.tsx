@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Politique de confidentialité — Keelio',
+  title: { absolute: 'Politique de confidentialité — Keelio' },
   description: 'Politique de confidentialité et protection des données personnelles de Keelio.',
-  robots: { index: false },
+  alternates: { canonical: '/politique-confidentialite' },
+  robots: { index: false, follow: true },
 }
 
 const articles = [

@@ -1,57 +1,54 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { ButtonLink } from '@/components/ui/Button'
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-}
-
+import Icon from "@/components/ui/Icon";
 export default function QuoteCTA() {
   return (
     <section
-      id="devis"
-      className="section-aura section-surface section-grid relative py-32"
+      className="offer-section light-section"
+      id="offre"
+      aria-labelledby="offre-title"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div
-          className="flex flex-col items-center text-center gap-6 max-w-2xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          variants={containerVariants}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="font-display font-bold text-[var(--color-text)] leading-tight"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
-          >
-            Un projet ?{' '}
-            <span style={{ color: 'var(--color-accent)' }}>Parlons-en.</span>
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="font-body text-[var(--color-text-muted)] text-base leading-relaxed"
-          >
-            Chaque entreprise est différente. Nous vous préparons une offre sur mesure après un premier échange sans engagement.
-          </motion.p>
-          <motion.div variants={itemVariants}>
-            <ButtonLink href="#contact" size="lg">
-              Demander un devis
-            </ButtonLink>
-          </motion.div>
-        </motion.div>
+      <div className="container offer-grid">
+        <div>
+          <p className="eyebrow">Une offre adaptée à votre entreprise</p>
+          <h2 id="offre-title" className="section-title">
+            Le bon accueil.
+            <br />
+            Au bon périmètre.
+          </h2>
+          <p className="section-copy">
+            Votre volume d’appels et vos besoins déterminent la solution. Nous
+            les étudions avec vous pour établir une proposition claire.
+          </p>
+        </div>
+        <div className="offer-card">
+          <div className="offer-heading">
+            <span>VOTRE ASSISTANT KEELIO</span>
+            <strong>
+              Sur devis
+              <span>Configuration et accompagnement personnalisés</span>
+            </strong>
+          </div>
+          <ul>
+            <li>
+              <Icon name="check" /> Un scénario d’accueil adapté à votre
+              activité
+            </li>
+            <li>
+              <Icon name="check" /> Les connexions convenues à vos outils
+            </li>
+            <li>
+              <Icon name="check" /> Une phase de test avant mise en service
+            </li>
+            <li>
+              <Icon name="check" /> Les conditions d’utilisation détaillées dans
+              le devis
+            </li>
+          </ul>
+          <a href="#contact" className="button button-dark">
+            Recevoir une proposition <Icon name="arrow" />
+          </a>
+          <p>La demande de démo ne vous engage pas.</p>
+        </div>
       </div>
     </section>
-  )
+  );
 }

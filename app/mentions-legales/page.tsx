@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Mentions légales — Keelio',
+  title: { absolute: 'Mentions légales — Keelio' },
   description: 'Mentions légales du site Keelio.',
-  robots: { index: false },
+  alternates: { canonical: '/mentions-legales' },
+  robots: { index: false, follow: true },
 }
 
 const sections = [
